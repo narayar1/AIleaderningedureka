@@ -316,7 +316,7 @@ git push -u origin master
 
 Hugging face
 ------------
-git remote set-url origin https://narayar1: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@huggingface.co/narayar1/example_model
+
 git pull origin
 to pull a remote feature  branch from git hub to local repository
 git pull new_branch
