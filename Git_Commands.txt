@@ -1,7 +1,3 @@
-narayar1
-Sql2023$
-
-pwd: Azuregit1
 git config --global user.name "ramesh"
 git config --global user.email "ramesh"
 add notepad++ exe location to path
