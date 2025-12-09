@@ -3,6 +3,9 @@ from dotenv import load_dotenv
 import os
 
 # Configure your API key
+# Replace 'YOUR_API_KEY' with your actual API key
+# It is recommended to store API keys securely, e.g., in environment variables
+
 
 # Load environment variables
 load_dotenv()
