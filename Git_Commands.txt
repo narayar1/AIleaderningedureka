@@ -1,0 +1,365 @@
+git config --global user.name "ramesh"
+git config --global user.email "ramesh"
+add notepad++ exe location to path
+notepad++ ~/.bash_profile
+alias npp='notepad++ -multiInst -nosession'
+git config --global core.editor "notepad++ -multiInst -nosession"
+view the config details
+------------------------
+git config --global -e
+
+F:\git> git init demo
+F:\git\demo [master]> git status
+F:\git\demo [master]> notepad++ README.md
+git add README.md
+git commit -m"First File in demo Repo"  --moves this to staging
+git init . - to initialise a git repository
+
+rm -rf .git will remove master and all git components do a git init . to reinstate it
+
+git commit - to commit all changed in one go
+
+git log - to check logs of commit
+
+git show - last commit along with diff
+
+git ls-files  - List of files being tracked by git
+
+git commit -am "Updating readme.md" - add and commit in one go
+
+
+git reset HEAD README.md  - to back out changes which have been added and not commited
+
+now move the last commit file from staging to local
+
+git checkout -- README.md
+
+git help log
+
+git log --oneline 1 liner on commits
+git log --oneline --graph --decorate --all 
+
+git config --global alias.hist "log  --oneline --graph --decorate --all" - creat hist command as a shortcut intead if typing everything
+git config --global --list - list all config changes
+
+now try git hist
+
+
+move a file which has been commited.
+
+create and commit a new file exemple.txt
+
+git mv example.txt demo.txt
+
+now commit to complete the changes
+
+git commit -m "renaming demo.txt"
+
+git rm demo.txt - remove file
+
+git commit -m"remove demo.txt" - all move,rename,delete etc.. have to be commited for it to be recongnised by git staging repo
+
+
+touch myfile.txt
+
+mv LICENSE.md LICENSE.txt -- we didn't use git here
+
+
+Excluding unwanted files
+noepad++ aplication.log
+notepad++ .gitignore -- capture *.log to exclude all log files from comitting
+git add .gitignore
+git status
+git commit -m "adding ingore file"
+
+DIFFERENCES
+git hist
+git diff 719b286 HEAD
+
+git difftool -- p4merge format
+
+git help diff
+
+
+Branches 
+Timeline of commits
+
+HEAD is the lastcommit of the current branch
+git branch
+
+git checkout -b updates - checkout pending changes and create a new branch called updates 
+
+notepad++ README.cmd
+git add .
+
+git diff updates master
+
+
+git checkout master -- swith to branch or master you want
+HEAD last commit on the current branch
+
+git merge updates - name of the branch you wich to merge
+
+Delete branches after use
+-------------------------
+
+git branch -d updates 
+
+
+Create a new Branch
+-------------------------
+git checkout -b child
+
+View all branches
+-----------------
+git branch -a 
+
+Merge Changes to Master
+-----------------------
+
+git merge child
+
+git mergetool
+
+Tags
+-----
+
+if no commit id is provided the latest commit get tagged
+
+git tag mytag
+
+git tag --list
+
+git tag -d mytag
+
+Annotated tags
+
+git tag -a v1.0 -m "Release 1.0"
+
+git show 1.0
+
+
+stash
+i
+git stash
+---------
+To be done before adding and commiting changes if changes made need not be added had to be stopped temporarily
+
+git stash list
+
+git stash pop -- continue with the changes which were halted
+
+git stash list
+
+
+Reset to an earlier commit
+--------------------------
+git reset d33a607 --soft 
+
+3 types of reset - soft,default,hard
+
+git reset c7538ec --mixed , This is default
+
+git reset 0d1a7a1 --hard
+
+hard is most destructive??
+
+git reflog - show all the actions taken
+
+Push from git to github
+------------------------
+no need of personal access tokens if vs code is being used
+git remote add origin https://github.com/narayar1/gitdec2025.git
+git push -u origin master
+
+get the remote connectivity
+---------------------------
+
+git remote add origin https://github.com/narayar1/demo.git 
+
+while forking the original branch from whch forking happens is the upstream branch
+git remote add upstream https://github.com/Pierian-Data/example-for-forking.git
+
+
+
+Push the changes to git hub
+----------------------------
+git push -u origin master --tags 
+
+setting up ssh
+
+ssh-keygen -t rsa -C "narayanan.ramesh@gmail.com"
+
+SHA256:nsjlKPpOiW++R6Xcbnss9w3/kZmt29ZuozQ+fSvQFQ0 narayanan.ramesh@gmail.com
+
+check if ssh works
+ssh -T git@github.com
+
+To copy the repository from gthub to local
+-------------------------------------------
+
+git clone git@github.com:narayar1/my-website.git
+
+git clone https://github.com/clupasq/word-mastermind
+
+To create a folder with different name in local website in this case
+-------------------------------------------------------------
+
+git clone git@github.com:narayar1/my-website.git website
+
+To push to github from local
+----------------------------
+
+git push origin master 
+
+git config --global push.default simple
+
+doing a git fetch is a good practice before push or pull 
+
+fetch is not destructive, does try to merge immediately fetch pull does.
+
+To push to a feature branch in github
+git push -u origin feature
+
+
+
+create a new branch
+--------------------
+git branch branchname
+git checkout -b remove-ipsum
+git rm lipsum.txt
+git commit -m "removing lpsum file"
+
+git push -u origin remove-ipsum
+
+-u is for the tracking relationship
+
+once the changes are pushed to Github ou need to create a pull request and merge it.
+
+switch to master
+----------------
+
+git checkout master
+
+merging changes in github locally
+--------------------------------
+
+1 .Pull from master in github to local
+
+git pull
+
+2. Merge latest changes from Brach to remove-ipsum
+
+git merge remove-ipsum
+
+delete a branch
+
+git branch -d remove-ipsum
+
+git fetch -p -- removes stale references, P is for pruning dead branches
+
+
+git add -u  to update and track
+
+git add -A will cover all modifications and deletions
+
+
+
+create a new branch in gihub - update-readme
+
+git fetch
+
+git checkout update-readme
+
+git push -all -  all the tacking and amster branches are pulled and merged
+
+
+
+fetch is used to check the status of the branch and see if any changes have happened.
+git push is a combination of get pull and git merge
+
+to delete a remote branch
+
+git push origin :update-readme
+
+social coding
+-------------
+
+fork from git hub
+
+copy the ssh path
+
+go to projects folder
+
+git clone git@github.com:narayar1/starter-web.git
+
+git checkout -b feature-readme
+
+notepad++ README.md
+
+git add README.md
+
+git commit -m "updated read me"
+
+git push -u origin feature-readme 
+
+Now contribute to upstream repository from where we forked it.
+
+
+git remote add origin https://github.com/narayar1/dataengg.git
+git add .
+git init
+git commit -m "First Commit"
+git remote add origin https://github.com/narayar1/dataengg.git
+git push -u origin master
+
+
+Hugging face
+------------
+
+git pull origin
+to pull a remote feature  branch from git hub to local repository
+git pull new_branch
+git push
+
+
+Git Story
+----------
+
+https://github.com/narayar1/gitstory.git
+git remote add origin https://github.com/narayar1/gitstory.git
+git branch -M main
+git push -u origin master
+
+git remote add new_branch https://github.com/narayar1/ghubpushpull25/tree/new_branch
+
+Remove files from staging area
+------------------------------
+git rm --cached -r .
+
+Touch equivalent command is code -r .gitignore
+
+clone creates a copy of the remote repository in your working repository
+fork creates a copy of the remote repository in your remote repository
+pull request is to push changes from your remote repository to the remote repository of someone else
+
+
+Fetch - Gets the chages from remote repo to local repo.
+Pull - Gets the changes from remote repo to woring directory.
+
+Show where the head is and in wich commit so that reverts can be done
+---------------------------------------------------------------------
+
+git log --oneline 
+
+
+
+
+
+
+
+
+
+
+
+

@@ -16,7 +16,9 @@ GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
 # Initialize the generative model
 # 'gemini-pro' is a commonly used model for text generation
-model = genai.GenerativeModel('gemini-2.0-flash')
+# model = genai.GenerativeModel('gemini-2.0-flash')
+model = genai.GenerativeModel('gemini-2.5-flash-lite')
+
 
 genai.configure(api_key=GOOGLE_API_KEY)
 
