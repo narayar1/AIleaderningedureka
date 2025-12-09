@@ -3,9 +3,6 @@ from dotenv import load_dotenv
 import os
 
 # Configure your API key
-# Replace 'YOUR_API_KEY' with your actual API key
-# It is recommended to store API keys securely, e.g., in environment variables
-# genai.configure(api_key='AIzaSyAC90G8hBJLNVSk6EFgjvG40BI-mh2vVhA')
 
 # Load environment variables
 load_dotenv()
@@ -16,7 +13,9 @@ GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
 # Initialize the generative model
 # 'gemini-pro' is a commonly used model for text generation
-model = genai.GenerativeModel('gemini-2.0-flash')
+# model = genai.GenerativeModel('gemini-2.0-flash')
+model = genai.GenerativeModel('gemini-2.5-flash-lite')
+
 
 genai.configure(api_key=GOOGLE_API_KEY)
 
